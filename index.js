@@ -7,7 +7,7 @@ module.exports = {
 
     return `
             const njk = require('nunjucks');
-            const env = new njk.Environment(new njk.FileSystemLoader('tests'), { throwOnUndefined: true, trimBlocks: true });
+            const env = njk.configure(\`${dir}\`, { trimBlocks: true });
             module.exports = njk.compile(\`${src}\`, env);
         `;
   },
